@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
@@ -30,27 +32,30 @@ const Navigation = () => {
             <a href="#informasi">Informasi</a>
             <ul className={`dropdown ${showDropdown ? "show" : ""}`}>
               <li>
-                <a
-                  href="https://link-to-gallery.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => navigate("/gallery")}
+                  className="navbar-button-down"
                 >
                   Gallery
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="https://link-to-team.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => navigate("/team")}
+                  className="navbar-button-down"
                 >
                   Team
-                </a>
+                </button>
               </li>
             </ul>
           </li>
           <li>
-            <a href="#login">Login</a>
+            <button
+              onClick={() => navigate("/login")}
+              className="navbar-button"
+            >
+              Login
+            </button>
           </li>
         </ul>
       </div>
