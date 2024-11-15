@@ -6,6 +6,9 @@ import aboutImg from "./image/aboutImg.jpg";
 import tiIcon from "./image/ti.png";
 import siIcon from "./image/si.png";
 import dkvIcon from "./image/dkv.png";
+import gallery1 from "./image/gallery1.jpg";
+import gallery2 from "./image/gallery2.jpg";
+import gallery3 from "./image/gallery3.jpg";
 
 export {
   imgHome1,
@@ -16,4 +19,7 @@ export {
   tiIcon,
   siIcon,
   dkvIcon,
+  gallery1,
+  gallery2,
+  gallery3,
 };
