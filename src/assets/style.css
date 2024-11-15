@@ -797,3 +797,192 @@ h6 {
 .success-container p {
   font-size: 1.1rem;
 }
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #333;
+}
+
+.nav-list li {
+  margin: 0 15px;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+}
+
+/* Gaya Umum */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Navigasi */
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #333;
+}
+
+.nav-list li {
+  margin: 0 15px;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+}
+
+/* Form Login */
+.login-form {
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.login-form div {
+  margin-bottom: 15px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Gaya untuk Bagian Tim */
+.team-section {
+  padding: 40px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.team-member {
+  display: inline-block;
+  width: 200px;
+  margin: 15px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+  color: #333;
+}
+
+.position {
+  font-style: italic;
+  color: #777;
+}
+
+.team-member p {
+  color: #555;
+}
+
+/* Gaya untuk Bagian Tim */
+.team-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px;
+  background-color: #f9f9f9;
+}
+
+.team-member {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+  width: 250px; /* Lebar tetap untuk kartu anggota tim */
+  display: flex; /* Flexbox untuk konten */
+  flex-direction: column; /* Mengatur arah konten menjadi kolom */
+  align-items: center; /* Mengatur item ke tengah secara horizontal */
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.team-member-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%; /* Membuat gambar menjadi bulat */
+  margin-bottom: 15px;
+  border: 2px solid #4CAF50; /* Tambahkan border untuk gambar */
+}
+
+.team-member h3 {
+  color: #333;
+  margin: 10px 0;
+}
+
+.position {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 10px; /* Spasi di bawah posisi */
+}
+
+.team-member p {
+  color: #555;
+  line-height: 1.5; /* Meningkatkan jarak antar baris */
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .team-section {
+    flex-direction: column; /* Mengatur arah kolom di layar kecil */
+    align-items: center; /* Mengatur item ke tengah */
+  }
+}
