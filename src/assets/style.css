@@ -797,3 +797,97 @@ h6 {
 .success-container p {
   font-size: 1.1rem;
 }
+/* Styling dasar untuk login form */
+.login-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  position: relative; /* Menambahkan posisi relatif agar latar belakang tetap di belakang form */
+  z-index: 1; /* Agar form tetap di depan latar belakang */
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('C:\Users\Brandon Prince\OneDrive\Documents\projectfinal\Front-End-Final-Project\src\assets\image\login.png'); /* Ganti dengan URL gambar latar belakang */
+  background-size: cover; /* Memastikan gambar menutupi seluruh area */
+  background-position: center; /* Memusatkan gambar */
+  opacity: 0.3; /* Menambahkan opacity untuk memberi efek transparan pada gambar latar */
+  z-index: -1; /* Memastikan gambar tetap berada di belakang kontainer */
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 2rem;
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+  font-size: 1rem;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.login-form input:focus {
+  border-color: #34acbc;
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #34acbc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #2c8e9c;
+}
+
+.success-container {
+  text-align: center;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.success-container h2 {
+  margin-bottom: 10px;
+}
+
+.success-container p {
+  font-size: 1.1rem;
+}
