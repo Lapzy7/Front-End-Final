@@ -11,13 +11,15 @@ function App() {
   return (
     <div className="app-container">
       <Router>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+        <div style={{ scrollRestoration: "manual" }}>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
       </Router>
       <Gap />
     </div>
