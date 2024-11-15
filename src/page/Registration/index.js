@@ -89,6 +89,10 @@ const Registration = () => {
         <button type="submit" className="register-button">
           Daftar
         </button>
+
+        <button type="submit" className="back-button" onClick={handleRedirect}>
+          Back
+        </button>
       </form>
     </div>
   );
