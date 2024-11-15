@@ -594,6 +594,12 @@ h6 {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
+.contact-info h2 {
+  font-size: 2rem;
+  color: #212121;
+  margin-bottom: 20px;
+}
+
 /* Contact form section */
 .contact-form {
   flex: 1 1 60%;
@@ -781,7 +787,6 @@ h6 {
 
 .success-container {
   text-align: center;
-  margin: 50px auto;
   padding: 20px;
   border-radius: 10px;
   background-color: #d4edda;
@@ -867,41 +872,4 @@ p {
 .gallery-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer p {
-  margin: 0;
-  font-size: 1em;
-}
-
-.footer .social-links {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.footer .social-links li {
-  display: inline;
-}
-
-.footer .social-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1em;
-  transition: color 0.3s;
-}
-
-.footer .social-links a:hover {
-  color: #34acbc;
 }

@@ -15,9 +15,12 @@ const Registration = () => {
 
   if (isSubmitted) {
     return (
-      <div className="success-container" onClick={handleRedirect}>
-        <h2>Pendaftaran Selesai</h2>
-        <p>Klik di sini untuk kembali ke halaman utama</p>
+      <div className="app-container">
+        <SmallNavigation />
+        <div className="success-container" onClick={handleRedirect}>
+          <h2>Pendaftaran Selesai</h2>
+          <p>Klik di sini untuk kembali ke halaman utama</p>
+        </div>
       </div>
     );
   }

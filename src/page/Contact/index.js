@@ -5,12 +5,11 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulasi proses pengiriman
     setStatus("sending");
 
     setTimeout(() => {
       setStatus("success");
-    }, 2000); // Menunggu 2 detik untuk simulasi pengiriman
+    }, 2000);
   };
 
   return (
