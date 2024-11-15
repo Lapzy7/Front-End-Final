@@ -1,21 +1,21 @@
 import "./assets/style.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Gap from "./component/Gap";
 import Navigation from "./component/Navigation";
-import About from "./page/About";
-import Contact from "./page/Contact";
-import Home from "./page/Home";
-import Prody from "./page/Prody";
+import Main from "./page/Main";
+import Registration from "./page/Registration";
 
 function App() {
   return (
     <div className="app-container">
       <Navigation />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/registration" element={<Registration />} />
+        </Routes>
+      </Router>
       <Gap />
-      <Home />
-      <About />
-      <Gap height={80} />
-      <Prody />
-      <Contact />
     </div>
   );
 }

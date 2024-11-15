@@ -3,8 +3,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { imgHome1, imgHome2, imgHome3 } from "../../assets";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const images = [imgHome1, imgHome2, imgHome3];
 
   const settings = {
@@ -15,9 +17,9 @@ const Home = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: true, // Enable arrows for navigation
-    prevArrow: <ThinArrow direction="left" />, // Updated previous arrow
-    nextArrow: <ThinArrow direction="right" />, // Updated next arrow
+    arrows: true,
+    prevArrow: <ThinArrow direction="left" />,
+    nextArrow: <ThinArrow direction="right" />,
   };
 
   return (
@@ -43,11 +45,7 @@ const Home = () => {
       </section>
 
       <div className="register-btn">
-        <button
-          onClick={() =>
-            window.open("https://link-to-registration.com", "_blank")
-          }
-        >
+        <button onClick={() => navigate("/registration")}>
           Daftar Sekarang
         </button>
       </div>
@@ -55,7 +53,6 @@ const Home = () => {
   );
 };
 
-// Modern thin arrow component
 const ThinArrow = ({ direction, onClick }) => (
   <div
     className={`thin-arrow ${
