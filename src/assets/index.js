@@ -9,6 +9,11 @@ import dkvIcon from "./image/dkv.png";
 import gallery1 from "./image/gallery1.jpg";
 import gallery2 from "./image/gallery2.jpg";
 import gallery3 from "./image/gallery3.jpg";
+import DK from "./image/dk(1).jpg";
+import Jery from "./image/jery (1).jpg";
+import Fredrik from "./image/Fredrick(1).jpg";
+import Enrico from "./image/Enrico(1) (1).jpg";
+import Brandon from "./image/Brandon(1) (1).jpg";
 
 export {
   imgHome1,
@@ -22,4 +27,9 @@ export {
   gallery1,
   gallery2,
   gallery3,
+  DK,
+  Jery,
+  Fredrik,
+  Enrico,
+  Brandon,
 };

@@ -22,7 +22,7 @@ const SmallNavigation = () => {
             onMouseLeave={() => setShowDropdown(false)}
             className="informasi"
           >
-            <a href="#informasi">Informasi</a>
+            <a href="#informasi">Information</a>
             <ul className={`dropdown ${showDropdown ? "show" : ""}`}>
               <li>
                 <button
