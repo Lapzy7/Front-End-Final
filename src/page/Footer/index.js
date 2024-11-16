@@ -12,21 +12,21 @@ const Footer = () => {
         </div>
         <div className="footer-socials">
           <a
-            href="https://facebook.com"
+            href="https://web.facebook.com/people/UNKLAB-Official/100082571173139/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Facebook
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/unklabofficial/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Instagram
           </a>
           <a
-            href="https://twitter.com"
+            href="https://x.com/unklabofficial"
             target="_blank"
             rel="noopener noreferrer"
           >

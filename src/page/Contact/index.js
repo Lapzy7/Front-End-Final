@@ -26,13 +26,14 @@ const Contact = () => {
         <section className="contact-info">
           <h2>Our Contact Information</h2>
           <p>
-            <strong>Address:</strong> Unklab, Airmadidi, Sulawesi Utara
+            <strong>Address:</strong> Jl. Arnold Mononutu, Airmadidi, Minahasa
+            Utara, Sulawesi Utara, 95371
           </p>
           <p>
-            <strong>Phone:</strong> +62 123 456 789
+            <strong>Phone:</strong> +62431 891035
           </p>
           <p>
-            <strong>Email:</strong> contact@filkomday.com
+            <strong>Email:</strong> info@unklab.ac.id
           </p>
           <p>
             <strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM
