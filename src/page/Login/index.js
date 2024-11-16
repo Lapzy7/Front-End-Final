@@ -1,17 +1,25 @@
-import { google, login2 } from "../../assets";
+import { gallery1, google, imgHome1, imgHome3, login2 } from "../../assets";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/");
+  };
+
   return (
     <section className="login-container">
       <div className="login-left">
         <div className="image-container">
-          <img src={login2} alt="Login Image" />
+          <img src={gallery1} alt="Login Image" />
         </div>
       </div>
       <div className="login-right">
         <h1>Welcome Back!</h1>
         <p>Login to your account</p>
-        <form action="#" method="POST" className="login-form">
+        <form onSubmit={handleLogin} className="login-form">
           <label htmlFor="email">Email Address</label>
           <input
             type="email"
