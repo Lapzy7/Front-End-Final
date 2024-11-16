@@ -31,9 +31,11 @@ const Login = () => {
           <div className="forgot-password">
             <a href="#">Forgot Password?</a>
           </div>
-          <button type="submit" className="login-btn">
-            Login
-          </button>
+          <a href="#">
+            <button type="button" className="login-btn">
+              Login
+            </button>
+          </a>
           <div className="alternative-login">
             <p>Or login with</p>
             <button className="login-google">
