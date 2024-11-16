@@ -4,7 +4,7 @@ import SmallNavigation from "../../component/SmallNavigation";
 
 const teamMembers = [
   {
-    name: "DK",
+    name: "Andika Pujianto",
     photo: DK,
   },
   {
@@ -16,7 +16,7 @@ const teamMembers = [
     photo: Fredrik,
   },
   {
-    name: "Enrico",
+    name: "Enrico Rori",
     photo: Enrico,
   },
   {

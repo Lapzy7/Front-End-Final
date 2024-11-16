@@ -14,6 +14,8 @@ import Jery from "./image/jery (1).jpg";
 import Fredrik from "./image/Fredrick(1).jpg";
 import Enrico from "./image/Enrico(1) (1).jpg";
 import Brandon from "./image/Brandon(1) (1).jpg";
+import login2 from "./image/login2 (1).jpg";
+import google from "./image/icon-google.png";
 
 export {
   imgHome1,
@@ -32,4 +34,6 @@ export {
   Fredrik,
   Enrico,
   Brandon,
+  login2,
+  google,
 };
