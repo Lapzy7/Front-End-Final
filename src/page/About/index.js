@@ -7,7 +7,7 @@ const About = () => {
     <div id="about" className="about-container">
       <header className="about-header">
         <h1>Tentang Filkom Day</h1>
-        <p>Acara Tahunan untuk Kebersamaan dan Inovasi</p>
+        <p>Acara Tahunan Fakultas Ilmu Komputer Universitas Klabat</p>
       </header>
       <Gap height={100} />
       <section className="about-content">
