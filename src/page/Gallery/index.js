@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import {
   aboutImg,
   gallery1,
@@ -11,6 +13,17 @@ import {
 import SmallNavigation from "../../component/SmallNavigation";
 
 const Gallery = () => {
+  const [gallery, setGallery] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const galleryRef = ref(db, "Page/Main/Footer");
+
+    onValue(galleryRef, (snapshot) => {
+      const data = snapshot.val();
+      setGallery(data);
+    });
+  }, []);
+
   return (
     <div className="app-container">
       <SmallNavigation />

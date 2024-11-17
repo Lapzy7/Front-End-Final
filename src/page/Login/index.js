@@ -1,9 +1,22 @@
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+
 import { gallery1, google, imgHome1, imgHome3, login2 } from "../../assets";
 import { useNavigate } from "react-router-dom";
-import Navigation from "../../component/Navigation";
 import SmallNavigation from "../../component/SmallNavigation";
 
 const Login = () => {
+  const [login, setLogin] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const loginRef = ref(db, "Page/Login");
+
+    onValue(loginRef, (snapshot) => {
+      const data = snapshot.val();
+      setLogin(data);
+    });
+  }, []);
+
   const navigate = useNavigate();
 
   const handleLogin = (e) => {

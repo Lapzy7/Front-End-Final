@@ -1,7 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import SmallNavigation from "../../component/SmallNavigation";
 
 const Registration = () => {
+  const [registration, setRegistration] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const registrationRef = ref(db, "Page/Registration");
+
+    onValue(registrationRef, (snapshot) => {
+      const data = snapshot.val();
+      setRegistration(data);
+    });
+  }, []);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {

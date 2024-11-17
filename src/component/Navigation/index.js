@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
+  const [navbar, setNavbar] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const navbarRef = ref(db, "Component/Navigation");
+
+    onValue(navbarRef, (snapshot) => {
+      const data = snapshot.val();
+      setNavbar(data);
+    });
+  }, []);
 
   return (
     <nav className="navbar">
