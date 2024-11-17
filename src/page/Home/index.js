@@ -24,20 +24,33 @@ const Home = () => {
 
   return (
     <div id="home" className="home-container">
-      <header className="home-header">
-        <h1>Filkom Day</h1>
-        <p>Keseruan | Educated</p>
-      </header>
-
       <section className="home-gallery">
         <Slider {...settings}>
           {images.map((image, index) => (
-            <div key={index} className="gallery-image-container">
+            <div
+              key={index}
+              className="gallery-image-container"
+              style={{ position: "relative" }}
+            >
               <img
                 src={image}
                 alt={`Filkom Day ${index + 1}`}
                 className="gallery-image"
               />
+              <header
+                className="home-header"
+                style={{
+                  position: "absolute",
+                  top: "20%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  color: "white",
+                  textAlign: "center",
+                }}
+              >
+                <h1>Filkom Day</h1>
+                <p>Keseruan | Educated</p>
+              </header>
               <div className="gallery-image-overlay" />
             </div>
           ))}

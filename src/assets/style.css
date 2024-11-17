@@ -91,8 +91,10 @@ h6 {
 
 /* Header */
 .home-header {
-  padding: 50px 20px;
-  color: #333;
+  position: absolute;
+  z-index: 2;
+  color: #ffffff;
+  text-align: center;
 }
 
 .home-header h1 {
@@ -104,7 +106,7 @@ h6 {
 
 .home-header p {
   font-size: 1.3em;
-  color: #555;
+  color: #fff;
   font-weight: 300;
 }
 
@@ -147,8 +149,8 @@ h6 {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.04),
-    rgba(0, 0, 0, 0.567)
+    rgba(0, 0, 0, 0.318),
+    rgba(11, 46, 50, 0.481)
   );
 }
 
@@ -248,7 +250,7 @@ h6 {
 .navbar-logo h2 {
   margin: 0;
   color: #34acbc;
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: 700;
 }
 
@@ -668,7 +670,7 @@ h6 {
 .success-message {
   text-align: center;
   padding: 40px;
-  background-color: #d4d6d3;
+  background-color: #d3d4d6;
   color: #2f4233;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
@@ -793,7 +795,7 @@ h6 {
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  background-color: #d4edda;
+  background-color: #d4e2ed;
   color: #155724;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -807,39 +809,12 @@ h6 {
   font-size: 1.1rem;
 }
 
-/* Galery Style */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h2 {
-  font-size: 2.5em;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1em;
-  color: #555;
-}
-
-/* Section Header */
+/* Section Header Gallery */
 .section-header {
   text-align: center;
   margin-bottom: 30px;
 }
 
-/* Gallery Grid */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -853,24 +828,20 @@ p {
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
+  padding: 0;
 }
 
 .gallery-item img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
+  display: block;
 }
 
-.gallery-item h3 {
-  margin: 15px 0 10px;
-  font-size: 1.5em;
-  color: #000;
-}
-
+.gallery-item h3,
 .gallery-item p {
-  font-size: 0.9em;
-  padding: 0 10px;
-  color: #666;
+  margin: 0;
+  padding: 10px 0;
 }
 
 .gallery-item:hover {
@@ -969,7 +940,7 @@ html {
 .image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the area without distortion */
+  object-fit: cover;
   border-radius: 10px;
 }
 
@@ -1018,7 +989,7 @@ html {
 .login-btn {
   width: 100%;
   padding: 12px;
-  background-color: #2575fc;
+  background-color: #212121;
   border: none;
   color: white;
   font-size: 1.1rem;
@@ -1028,7 +999,7 @@ html {
 }
 
 .login-btn:hover {
-  background-color: #6a11cb;
+  background-color: #46474b;
 }
 
 .forgot-password {
@@ -1102,7 +1073,7 @@ html {
   }
 
   .image-container img {
-    height: auto; /* Let the image scale correctly on smaller screens */
+    height: auto;
   }
 }
 
@@ -1117,4 +1088,71 @@ html {
   .team-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Footer Container */
+.footer-container {
+  background-color: #212121;
+  color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo h2 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #34acbc;
+}
+
+.footer-links {
+  margin: 20px 0;
+}
+
+.footer-links a {
+  color: #ffffff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #34acbc;
+}
+
+.footer-socials {
+  margin: 20px 0;
+}
+
+.footer-socials a {
+  color: #34acbc;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #065464;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-bottom p {
+  margin: 0;
 }
