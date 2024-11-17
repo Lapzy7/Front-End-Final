@@ -30,8 +30,8 @@ const Registration = () => {
       <div className="app-container">
         <SmallNavigation />
         <div className="success-container" onClick={handleRedirect}>
-          <h2>Pendaftaran Selesai</h2>
-          <p>Klik di sini untuk kembali ke halaman utama</p>
+          <h2>{registration.h2}</h2>
+          <p>{registration.p}</p>
         </div>
       </div>
     );
@@ -41,10 +41,10 @@ const Registration = () => {
     <div className="app-container">
       <SmallNavigation />
       <div className="registration-container">
-        <h2>Formulir Pendaftaran</h2>
+        <h2>{registration.fp}</h2>
         <form onSubmit={handleSubmit} className="registration-form">
           <div className="form-group">
-            <label htmlFor="nama">Nama</label>
+            <label htmlFor="nama">{registration.nm}</label>
             <input
               type="text"
               id="nama"
@@ -54,12 +54,12 @@ const Registration = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="nim">NIM</label>
+            <label htmlFor="nim">{registration.nim}</label>
             <input type="number" id="nim" placeholder="Masukkan NIM" required />
           </div>
 
           <div className="form-group">
-            <label htmlFor="noreg">No Regis</label>
+            <label htmlFor="noreg">{registration.nr}</label>
             <input
               type="text"
               id="noreg"
@@ -69,7 +69,7 @@ const Registration = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="notelp">No Telepon</label>
+            <label htmlFor="notelp">{registration.nt}</label>
             <input
               type="tel"
               id="notelp"
@@ -79,33 +79,33 @@ const Registration = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="makanan">Makanan</label>
+            <label htmlFor="makanan">{registration.mkn}</label>
             <select id="makanan" required>
               <option value="" disabled selected>
-                Makanan
+                {registration.mkn}
               </option>
-              <option value="Ayam">Ayam</option>
-              <option value="Ikan">Ikan</option>
-              <option value="Vegetarian">Vegetarian</option>
+              <option value="Ayam">{registration.mkn1}</option>
+              <option value="Ikan">{registration.mkn2}</option>
+              <option value="Vegetarian">{registration.mkn3}</option>
             </select>
           </div>
 
           <div className="form-group">
-            <label htmlFor="sizechart">Ukuran Baju</label>
+            <label htmlFor="sizechart">{registration.sb}</label>
             <select id="sizechart" required>
               <option value="" disabled selected>
-                Size baju
+                {registration.sb}
               </option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-              <option value="XXL">XXL</option>
-              <option value="XXXL">XXXL</option>
+              <option value="M">{registration.sb1}</option>
+              <option value="L">{registration.sb2}</option>
+              <option value="XL">{registration.sb3}</option>
+              <option value="XXL">{registration.sb4}</option>
+              <option value="XXXL">{registration.sb5}</option>
             </select>
           </div>
 
           <button type="submit" className="register-button">
-            Daftar
+            {registration.btn}
           </button>
 
           <button
@@ -113,7 +113,7 @@ const Registration = () => {
             className="back-button"
             onClick={handleRedirect}
           >
-            Back
+            {registration.btnb}
           </button>
         </form>
       </div>
