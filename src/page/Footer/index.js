@@ -5,7 +5,7 @@ const Footer = () => {
   const [footer, setFooter] = useState({});
   useEffect(() => {
     const db = getDatabase();
-    const footerRef = ref(db, "Page/Main/About");
+    const footerRef = ref(db, "Page/Main/Footer");
 
     onValue(footerRef, (snapshot) => {
       const data = snapshot.val();
@@ -17,12 +17,12 @@ const Footer = () => {
     <footer className="footer-container">
       <div className="footer-content">
         <div className="footer-logo">
-          <h2>Filkom Day</h2>
+        <h2>{footer.logo}</h2>
         </div>
         <div className="footer-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="#home">{footer.fmenu}</a>
+          <a href="#about">{footer.fmenu2}</a>
+          <a href="#contact">{footer.fmenu3}</a>
         </div>
         <div className="footer-socials">
           <a
@@ -30,26 +30,26 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Facebook
+            {footer.fsocial}
           </a>
           <a
             href="https://www.instagram.com/unklabofficial/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Instagram
+            {footer.fsocial2}
           </a>
           <a
             href="https://x.com/unklabofficial"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Twitter
+            {footer.fsocial3}
           </a>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 Filkom Day. All Rights Reserved.</p>
+        <p>&copy; {footer.fbtn}</p>
       </div>
     </footer>
   );
