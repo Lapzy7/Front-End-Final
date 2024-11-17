@@ -1,7 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import Gap from "../../component/Gap";
+
 const Contact = () => {
   const [status, setStatus] = useState(null);
+  const [contact, setContact] = useState({});
+  const [InformationTitle, setInformationTitle] = useState({});
+  const [SendMessage, setSendMessage] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const contactRef = ref(db, "Page/Main/Contact/");
+
+    onValue(contactRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setContact(data);
+        if (data.InformationTitle) {
+          setInformationTitle(data.InformationTitle);
+        }
+        if (data.SendMessage) {
+          setSendMessage(data.SendMessage);
+        }
+      }
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,79 +38,80 @@ const Contact = () => {
   return (
     <div id="contact" className="contact-container">
       <section className="contact-header">
-        <h1>Contact Us</h1>
-        <p>
-          We'd love to hear from you! Reach out with any questions or feedback.
-        </p>
+        <h1>{InformationTitle.Title}</h1>
+        <p>{InformationTitle.subTitle}</p>
       </section>
 
       <Gap height={50} />
       <div className="contact-main">
         <section className="contact-info">
-          <h2>Our Contact Information</h2>
+          <h2>{InformationTitle.Header}</h2>
           <p>
-            <strong>Address:</strong> Jl. Arnold Mononutu, Airmadidi, Minahasa
-            Utara, Sulawesi Utara, 95371
+            <strong>{InformationTitle.Address}</strong>{" "}
+            {InformationTitle.AddressInfo}
           </p>
           <p>
-            <strong>Phone:</strong> +62431 891035
+            <strong>{InformationTitle.Phone}</strong>{" "}
+            {InformationTitle.PhoneInfo}
           </p>
           <p>
-            <strong>Email:</strong> info@unklab.ac.id
+            <strong>{InformationTitle.Email}</strong>{" "}
+            {InformationTitle.EmailInfo}
           </p>
           <p>
-            <strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM
+            <strong>{InformationTitle.OfficeHour}</strong>{" "}
+            {InformationTitle.OfficeHourInfo}
           </p>
         </section>
 
         <section className="contact-form">
-          <h2>Send Us a Message</h2>
+          <h2>{SendMessage.Header}</h2>
           {status === "success" ? (
             <div className="success-message">
-              <h3>Thank you for your message!</h3>
-              <p>We will get back to you soon.</p>
+              <h3>{SendMessage.SuccesMessage}</h3>
+              <p>{SendMessage.SubSuccesmessage}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="name">Your Name</label>
+                <label htmlFor="name">{SendMessage.Name}</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Enter your name"
+                  placeholder={SendMessage.EnterName}
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="name">NIM</label>
+                <label htmlFor="name">{SendMessage.Nim}</label>
                 <input
                   type="number"
                   id="nim"
                   name="nim"
-                  placeholder="Enter your NIM"
+                  placeholder={SendMessage.EnterNim}
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Your Email</label>
+                <label htmlFor="email">{SendMessage.Email}</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="Enter your email"
+                  placeholder={SendMessage.EnterEmail}
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Your Message</label>
+                <label htmlFor="message">{SendMessage.Message}</label>
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="Write your message here"
+                  placeholder={SendMessage.EnterMessage}
                   required
                 ></textarea>
               </div>
