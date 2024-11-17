@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 import { dkvIcon, siIcon, tiIcon } from "../../assets";
 import Gap from "../../component/Gap";
 
 const Prody = () => {
+  const [prody, setPrody] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const prodyRef = ref(db, "Page/Main/Contact");
+
+    onValue(prodyRef, (snapshot) => {
+      const data = snapshot.val();
+      setPrody(data);
+    });
+  }, []);
+
   const prodiList = [
     {
       name: "Teknik Informatika",
