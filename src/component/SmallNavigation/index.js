@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
-const Navigation = () => {
+const SmallNavigation = () => {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
-  const [navbar, setNavbar] = useState({});
+  const [smallnavbar, setSmallNavbar] = useState({});
   useEffect(() => {
     const db = getDatabase();
-    const navbarRef = ref(db, "Component/Navigation");
+    const smallNavbarRef = ref(db, "Component/Navigation");
 
-    onValue(navbarRef, (snapshot) => {
+    onValue(smallNavbarRef, (snapshot) => {
       const data = snapshot.val();
-      setNavbar(data);
+      setSmallNavbar(data);
     });
   }, []);
 
@@ -24,16 +24,9 @@ const Navigation = () => {
         </div>
         <ul className="navbar-links">
           <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#prody">Prody</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
+            <button onClick={() => navigate("/")} className="navbar-button">
+              Home
+            </button>
           </li>
           <li
             onMouseEnter={() => setShowDropdown(true)}
@@ -74,4 +67,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default SmallNavigation;

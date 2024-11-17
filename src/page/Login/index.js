@@ -1,61 +1,79 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+
+import { gallery1, google, imgHome1, imgHome3, login2 } from "../../assets";
+import { useNavigate } from "react-router-dom";
+import SmallNavigation from "../../component/SmallNavigation";
 
 const Login = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [login, setLogin] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const loginRef = ref(db, "Page/Login");
 
-  // Handle the form submission
-  const handleSubmit = (event) => {
-    event.preventDefault();
+    onValue(loginRef, (snapshot) => {
+      const data = snapshot.val();
+      setLogin(data);
+    });
+  }, []);
 
-    // Show success message
-    setIsSubmitted(true);
+  const navigate = useNavigate();
 
-    // Simulate a short delay before redirecting (e.g., 2 seconds)
-    setTimeout(() => {
-      setIsRedirecting(true);
-      // Redirect after 2 seconds (you can adjust this time)
-      window.location.href = "/"; // Redirect to main menu or homepage
-    }, 2000);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/");
   };
 
-  if (isSubmitted && !isRedirecting) {
-    return (
-      <div className="success-container">
-        <h2>Login Berhasil</h2>
-        <p>Tunggu sebentar, Anda akan diarahkan ke halaman utama...</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="login-container">
-      <h2>Formulir Login</h2>
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            placeholder="Masukkan username"
-            required
-          />
+    <div className="app-container">
+      <SmallNavigation />
+      <section className="login-container">
+        <div className="login-left">
+          <div className="image-container">
+            <img src={gallery1} alt="Login Image" />
+          </div>
         </div>
-
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Masukkan password"
-            required
-          />
+        <div className="login-right">
+          <h1>Welcome Back!</h1>
+          <p>Login to your account</p>
+          <form onSubmit={handleLogin} className="login-form">
+            <label htmlFor="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+            />
+            <div className="forgot-password">
+              <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" className="login-btn">
+              Login
+            </button>
+            <div className="alternative-login">
+              <p>Or login with</p>
+              <button className="login-google">
+                <img src={google} alt="Google" />
+                Google
+              </button>
+            </div>
+            <div className="signup-link">
+              <p>
+                Don't have an account? <a href="#">Sign up</a>
+              </p>
+            </div>
+          </form>
         </div>
-
-        <button type="submit" className="login-button">
-          Login
-        </button>
-      </form>
+      </section>
     </div>
   );
 };

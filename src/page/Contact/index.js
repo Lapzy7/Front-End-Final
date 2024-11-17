@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import Gap from "../../component/Gap";
+
 const Contact = () => {
   const [status, setStatus] = useState(null);
+  const [contact, setContact] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const contactRef = ref(db, "Page/Main/Contact");
+
+    onValue(contactRef, (snapshot) => {
+      const data = snapshot.val();
+      setContact(data);
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulasi proses pengiriman
     setStatus("sending");
 
     setTimeout(() => {
       setStatus("success");
-    }, 2000); // Menunggu 2 detik untuk simulasi pengiriman
+    }, 2000);
   };
 
   return (
@@ -27,13 +38,14 @@ const Contact = () => {
         <section className="contact-info">
           <h2>Our Contact Information</h2>
           <p>
-            <strong>Address:</strong> Unklab, Airmadidi, Sulawesi Utara
+            <strong>Address:</strong> Jl. Arnold Mononutu, Airmadidi, Minahasa
+            Utara, Sulawesi Utara, 95371
           </p>
           <p>
-            <strong>Phone:</strong> +62 123 456 789
+            <strong>Phone:</strong> +62431 891035
           </p>
           <p>
-            <strong>Email:</strong> contact@filkomday.com
+            <strong>Email:</strong> info@unklab.ac.id
           </p>
           <p>
             <strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM
