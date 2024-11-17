@@ -42,11 +42,8 @@ const Team = () => {
     <div className="app-container">
       <SmallNavigation />
       <div className="team-container">
-        <h1>Meet Our Amazing Team</h1>
-        <p>
-          We are proud to present our dedicated team members who bring
-          creativity, expertise, and passion to every project.
-        </p>
+        <h1>{team.teamjdl}</h1>
+        <p>{team.teamdes}</p>
         <div className="team-grid">
           {teamMembers.map((member, index) => (
             <div key={index} className="team-member">
