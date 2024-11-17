@@ -1,7 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import Gap from "../../component/Gap";
+
 const Contact = () => {
   const [status, setStatus] = useState(null);
+  const [contact, setContact] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const contactRef = ref(db, "Page/Main/Contact");
+
+    onValue(contactRef, (snapshot) => {
+      const data = snapshot.val();
+      setContact(data);
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

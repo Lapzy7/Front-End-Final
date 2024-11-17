@@ -1,4 +1,18 @@
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+
 const Footer = () => {
+  const [footer, setFooter] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const footerRef = ref(db, "Page/Main/About");
+
+    onValue(footerRef, (snapshot) => {
+      const data = snapshot.val();
+      setFooter(data);
+    });
+  }, []);
+
   return (
     <footer className="footer-container">
       <div className="footer-content">

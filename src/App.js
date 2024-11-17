@@ -1,6 +1,5 @@
 import "./assets/style.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Gap from "./component/Gap";
 import Main from "./page/Main";
 import Registration from "./page/Registration";
 import Gallery from "./page/Gallery";

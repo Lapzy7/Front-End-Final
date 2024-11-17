@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { Brandon, DK, Enrico, Fredrik, Jery } from "../../assets";
 import SmallNavigation from "../../component/SmallNavigation";
 
@@ -25,7 +26,18 @@ const teamMembers = [
   },
 ];
 
-function Team() {
+const Team = () => {
+  const [team, setTeam] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const teamRef = ref(db, "Page/Information/Team");
+
+    onValue(teamRef, (snapshot) => {
+      const data = snapshot.val();
+      setTeam(data);
+    });
+  }, []);
+
   return (
     <div className="app-container">
       <SmallNavigation />
@@ -50,6 +62,6 @@ function Team() {
       </div>
     </div>
   );
-}
+};
 
 export default Team;
