@@ -1,20 +1,64 @@
-import React from 'react';
-import Navigation from "../../component/Navigation"; // Pastikan path ini sesuai
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { Brandon, DK, Enrico, Fredrik, Jery } from "../../assets";
+import SmallNavigation from "../../component/SmallNavigation";
+
+const teamMembers = [
+  {
+    name: "Andika Pujianto",
+    photo: DK,
+  },
+  {
+    name: "Jery Koupun",
+    photo: Jery,
+  },
+  {
+    name: "Fredrik",
+    photo: Fredrik,
+  },
+  {
+    name: "Enrico Rori",
+    photo: Enrico,
+  },
+  {
+    name: "Brandon Luturmas",
+    photo: Brandon,
+  },
+];
 
 const Team = () => {
+  const [team, setTeam] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const teamRef = ref(db, "Page/Information/Team");
+
+    onValue(teamRef, (snapshot) => {
+      const data = snapshot.val();
+      setTeam(data);
+    });
+  }, []);
+
   return (
     <div className="app-container">
-      <Navigation />
-      <h1>Meet Our Team</h1>
-      <div className="team-section">
-        {teamMembers.map(member => (
-          <div className="team-member" key={member.name}>
-            <img src={member.image} alt={member.name} className="team-member-image" />
-            <h3>{member.name}</h3>
-            <p className="position">{member.position}</p>
-            <p>{member.description}</p>
-          </div>
-        ))}
+      <SmallNavigation />
+      <div className="team-container">
+        <h1>Meet Our Amazing Team</h1>
+        <p>
+          We are proud to present our dedicated team members who bring
+          creativity, expertise, and passion to every project.
+        </p>
+        <div className="team-grid">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="team-member">
+              <img
+                src={member.photo}
+                alt={`${member.name}'s profile`}
+                className="team-photo"
+              />
+              <h3>{member.name}</h3>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,25 +1,79 @@
-import Navigation from "../../component/Navigation"; // Pastikan path ini sesuai
-import React from 'react';
-import { Link } from 'react-router-dom'; // Tambahkan ini untuk navigasi
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+
+import { gallery1, google, imgHome1, imgHome3, login2 } from "../../assets";
+import { useNavigate } from "react-router-dom";
+import SmallNavigation from "../../component/SmallNavigation";
 
 const Login = () => {
+  const [login, setLogin] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const loginRef = ref(db, "Page/Login");
+
+    onValue(loginRef, (snapshot) => {
+      const data = snapshot.val();
+      setLogin(data);
+    });
+  }, []);
+
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/");
+  };
+
   return (
     <div className="app-container">
-      <Navigation />
-      <h1>Login</h1>
-      <h3>Dapatkan gaya dari ./src/assets/style.css</h3>
-      <form className="login-form">
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input type="text" id="username" name="username" required />
+      <SmallNavigation />
+      <section className="login-container">
+        <div className="login-left">
+          <div className="image-container">
+            <img src={gallery1} alt="Login Image" />
+          </div>
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" required />
+        <div className="login-right">
+          <h1>Welcome Back!</h1>
+          <p>Login to your account</p>
+          <form onSubmit={handleLogin} className="login-form">
+            <label htmlFor="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+            />
+            <div className="forgot-password">
+              <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" className="login-btn">
+              Login
+            </button>
+            <div className="alternative-login">
+              <p>Or login with</p>
+              <button className="login-google">
+                <img src={google} alt="Google" />
+                Google
+              </button>
+            </div>
+            <div className="signup-link">
+              <p>
+                Don't have an account? <a href="#">Sign up</a>
+              </p>
+            </div>
+          </form>
         </div>
-        <button type="submit">Login</button>
-      </form>
-      <Link to="/login/team">View Team</Link> {/* Tambahkan tautan ke halaman Team */}
+      </section>
     </div>
   );
 };
