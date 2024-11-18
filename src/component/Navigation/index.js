@@ -47,7 +47,7 @@ const Navigation = () => {
                   onClick={() => navigate("/gallery")}
                   className="navbar-button-down"
                 >
-                  {navbar.Menu1 - 1}
+                  {navbar.Menu5Gal}
                 </button>
               </li>
               <li>
@@ -55,7 +55,7 @@ const Navigation = () => {
                   onClick={() => navigate("/team")}
                   className="navbar-button-down"
                 >
-                  {navbar.Menu - 2}
+                  {navbar.Menu5Team}
                 </button>
               </li>
             </ul>

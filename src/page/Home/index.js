@@ -9,7 +9,11 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [home, setHome] = useState({});
   const navigate = useNavigate();
-  const images = [imgHome1, imgHome2, imgHome3];
+  const images = [
+    `data:image/jpg;base64,${home.imgh1}`,
+    `data:image/jpg;base64,${home.imgh2}`,
+    `data:image/jpg;base64,${home.imgh3}`,
+  ];
 
   const settings = {
     dots: true,
