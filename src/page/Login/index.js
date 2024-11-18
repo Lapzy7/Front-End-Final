@@ -1,9 +1,22 @@
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+
 import { gallery1, google, imgHome1, imgHome3, login2 } from "../../assets";
 import { useNavigate } from "react-router-dom";
-import Navigation from "../../component/Navigation";
 import SmallNavigation from "../../component/SmallNavigation";
 
 const Login = () => {
+  const [login, setLogin] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const loginRef = ref(db, "Page/Login");
+
+    onValue(loginRef, (snapshot) => {
+      const data = snapshot.val();
+      setLogin(data);
+    });
+  }, []);
+
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -17,14 +30,14 @@ const Login = () => {
       <section className="login-container">
         <div className="login-left">
           <div className="image-container">
-            <img src={gallery1} alt="Login Image" />
+            <img src={`data:image/jpg;base64,${login.img}`} alt="Login Image" />
           </div>
         </div>
         <div className="login-right">
-          <h1>Welcome Back!</h1>
-          <p>Login to your account</p>
+          <h1>{login.wb}</h1>
+          <p>{login.p}</p>
           <form onSubmit={handleLogin} className="login-form">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">{login.email}</label>
             <input
               type="email"
               id="email"
@@ -32,7 +45,7 @@ const Login = () => {
               placeholder="Enter your email"
               required
             />
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{login.ps}</label>
             <input
               type="password"
               id="password"
@@ -41,21 +54,25 @@ const Login = () => {
               required
             />
             <div className="forgot-password">
-              <a href="#">Forgot Password?</a>
+              <a href="#">{login.fp}</a>
             </div>
             <button type="submit" className="login-btn">
-              Login
+              {login.lgn}
             </button>
             <div className="alternative-login">
-              <p>Or login with</p>
+              <p>{login.or}</p>
               <button className="login-google">
-                <img src={google} alt="Google" />
-                Google
+                <img
+                  src={`data:image/jpg;base64,${login.imgggl}`}
+                  alt="Google"
+                />
+                {login.ggl}
               </button>
             </div>
             <div className="signup-link">
               <p>
-                Don't have an account? <a href="#">Sign up</a>
+                {login.dha}
+                <a href="#">{login.su}</a>
               </p>
             </div>
           </form>
