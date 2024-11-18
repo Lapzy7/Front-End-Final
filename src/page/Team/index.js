@@ -3,29 +3,6 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { Brandon, DK, Enrico, Fredrik, Jery } from "../../assets";
 import SmallNavigation from "../../component/SmallNavigation";
 
-const teamMembers = [
-  {
-    name: "Andika Pujianto",
-    photo: DK,
-  },
-  {
-    name: "Jery Koupun",
-    photo: Jery,
-  },
-  {
-    name: "Fredrik",
-    photo: Fredrik,
-  },
-  {
-    name: "Enrico Rori",
-    photo: Enrico,
-  },
-  {
-    name: "Brandon Luturmas",
-    photo: Brandon,
-  },
-];
-
 const Team = () => {
   const [team, setTeam] = useState({});
   useEffect(() => {
@@ -37,6 +14,29 @@ const Team = () => {
       setTeam(data);
     });
   }, []);
+
+  const teamMembers = [
+    {
+      name: team.nama1,
+      photo: `data:image/jpg;base64,${team.DK}`,
+    },
+    {
+      name: team.nama2,
+      photo: `data:image/jpg;base64,${team.Jery}`,
+    },
+    {
+      name: team.nama3,
+      photo: `data:image/jpg;base64,${team.Fredrick}`,
+    },
+    {
+      name: team.nama4,
+      photo: `data:image/jpg;base64,${team.Enrico}`,
+    },
+    {
+      name: team.nama5,
+      photo: `data:image/jpg;base64,${team.Brandon}`,
+    },
+  ];
 
   return (
     <div className="app-container">

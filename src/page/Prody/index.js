@@ -8,7 +8,7 @@ const Prody = () => {
   const [prody, setPrody] = useState({});
   useEffect(() => {
     const db = getDatabase();
-    const prodyRef = ref(db, "Page/Main/Contact");
+    const prodyRef = ref(db, "Page/Main/Prody");
 
     onValue(prodyRef, (snapshot) => {
       const data = snapshot.val();
@@ -18,21 +18,18 @@ const Prody = () => {
 
   const prodiList = [
     {
-      name: "Teknik Informatika",
-      description:
-        "Fokus pada pengembangan perangkat lunak, pemrograman, dan sistem komputer.",
+      name: prody.prodi1,
+      description: prody.prodi1des,
       logo: tiIcon,
     },
     {
-      name: "Sistem Informasi",
-      description:
-        "Mempelajari bagaimana teknologi informasi dapat digunakan untuk mendukung proses bisnis.",
+      name: prody.prodi2,
+      description: prody.prodi2des,
       logo: siIcon,
     },
     {
-      name: "Teknologi Informasi",
-      description:
-        "Mengkhususkan pada pengajaran dan pembelajaran teknologi informasi.",
+      name: prody.prodi3,
+      description: prody.prodi3des,
       logo: dkvIcon,
     },
   ];
@@ -40,7 +37,7 @@ const Prody = () => {
   return (
     <div id="prody" className="prody-container">
       <Gap />
-      <h1>Program Studi di Fakultas Ilmu Komputer</h1>
+      <h1>{prody.h1}</h1>
       <div className="prody-list">
         {prodiList.map((prodi, index) => (
           <div key={index} className="prody-item">
