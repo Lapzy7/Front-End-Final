@@ -17,7 +17,7 @@ const Footer = () => {
     <footer className="footer-container">
       <div className="footer-content">
         <div className="footer-logo">
-        <h2>{footer.logo}</h2>
+          <h2>{footer.logo}</h2>
         </div>
         <div className="footer-links">
           <a href="#home">{footer.fmenu}</a>

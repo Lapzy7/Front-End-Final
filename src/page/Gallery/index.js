@@ -1,15 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-import {
-  aboutImg,
-  gallery1,
-  gallery2,
-  gallery3,
-  imgHome1,
-  imgHome2,
-  imgHome3,
-  login2,
-} from "../../assets";
 import SmallNavigation from "../../component/SmallNavigation";
 
 const Gallery = () => {

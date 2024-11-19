@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-
-import { dkvIcon, siIcon, tiIcon } from "../../assets";
 import Gap from "../../component/Gap";
 
 const Prody = () => {
@@ -20,17 +18,17 @@ const Prody = () => {
     {
       name: prody.prodi1,
       description: prody.prodi1des,
-      logo: tiIcon,
+      logo: `data:image/jpg;base64,${prody.iconTI}`,
     },
     {
       name: prody.prodi2,
       description: prody.prodi2des,
-      logo: siIcon,
+      logo: `data:image/jpg;base64,${prody.iconSI}`,
     },
     {
       name: prody.prodi3,
       description: prody.prodi3des,
-      logo: dkvIcon,
+      logo: `data:image/jpg;base64,${prody.iconDKV}`,
     },
   ];
 
