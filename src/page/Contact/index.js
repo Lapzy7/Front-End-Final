@@ -117,7 +117,9 @@ const Contact = () => {
               </div>
 
               <button type="submit" className="submit-btn">
-                {status === "sending" ? "Sending..." : "Send Message"}
+                {status === SendMessage.btnSending
+                  ? "Sending..."
+                  : SendMessage.btnSend}
               </button>
             </form>
           )}

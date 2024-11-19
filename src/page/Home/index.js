@@ -3,7 +3,6 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { imgHome1, imgHome2, imgHome3 } from "../../assets";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
