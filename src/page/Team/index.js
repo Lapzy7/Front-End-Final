@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { Brandon, DK, Enrico, Fredrik, Jery } from "../../assets";
 import SmallNavigation from "../../component/SmallNavigation";
 
 const Team = () => {
